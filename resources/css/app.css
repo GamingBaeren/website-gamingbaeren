@@ -241,12 +241,12 @@ body {
 }
 
 .backgroundcolorsidebar {
-        background-color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.712);
 }
 
 
   
-  .logo {
+.logo {
     height: 6em;
     padding: 1.5em;
     will-change: filter;
