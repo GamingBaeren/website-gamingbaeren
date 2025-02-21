@@ -288,11 +288,7 @@ export default function Welcome({
                 <div className="hero-stats">
                   <div className="stat-item">
                     <Users />
-                    <span>1000+ Members</span>
-                  </div>
-                  <div className="stat-item">
-                    <Trophy />
-                    <span>Daily Events</span>
+                    <span>50 Members</span>
                   </div>
                 </div>
                 <a
