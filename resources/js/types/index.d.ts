@@ -1,4 +1,9 @@
+import { SpawnSyncOptionsWithBufferEncoding } from "child_process";
+
 export interface User {
+    firstname: string;
+    lastname: string;
+    username: string;
     id: number;
     name: string;
     email: string;

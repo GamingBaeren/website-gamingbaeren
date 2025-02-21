@@ -66,7 +66,7 @@ export default function Welcome({
     return (
       <>
 
-        <Head title="Welcome" />
+        <Head title="GamingBaeren.de" />
         {/* Hero Section */}
         <div>
 

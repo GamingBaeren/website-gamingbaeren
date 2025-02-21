@@ -5,7 +5,7 @@ export default function Dashboard() {
     return (
         <AuthenticatedLayout
         >
-            
+            <title>Test</title>
             <Head title="Dashboard" />
 
             <div className="py-12 paddingdown">
@@ -17,6 +17,6 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
-        // </AuthenticatedLayout>
+        </AuthenticatedLayout>
     );
 }
