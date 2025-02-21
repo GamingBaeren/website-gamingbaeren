@@ -3,8 +3,8 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import GuestLayout from '@/Layouts/GuestLayout';
 import { Head, Link, useForm } from '@inertiajs/react';
+import { LogIn} from 'lucide-react';
 import { FormEventHandler } from 'react';
 
 export default function Login({
@@ -29,7 +29,7 @@ export default function Login({
     };
 
     return (
-        <GuestLayout>
+        <>
             <Head title="Log in" />
 
             {status && (
@@ -37,8 +37,21 @@ export default function Login({
                     {status}
                 </div>
             )}
+            <div className="min-h-screen bg-gray-950 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-md space-y-8">
+        <div className="text-center">
+          <LogIn className="mx-auto h-12 w-12 text-primary" />
+          <h2 className="mt-6 text-3xl font-bold text-white">Log in</h2>
+          <p className="mt-2 text-sm text-gray-400">
+            Don´t have an account?{" "}
+            <Link href="/login" className="text-primary hover:text-primary/90">
+              Sign Up
+            </Link>
+          </p>
+        </div>
 
-            <form onSubmit={submit}>
+        <div className="mt-8 bg-gray-900/50 p-6 rounded-lg backdrop-blur-sm border border-gray-800">
+        <form onSubmit={submit}>
                 <div>
                     <InputLabel htmlFor="email" value="Email" />
 
@@ -105,6 +118,10 @@ export default function Login({
                     </PrimaryButton>
                 </div>
             </form>
-        </GuestLayout>
+        </div>
+      </div>
+    </div>
+            
+        </>
     );
 }

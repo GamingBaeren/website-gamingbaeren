@@ -1,4 +1,4 @@
-import { Users, Trophy, Video, Gamepad2, Menu, Home, Layout, Settings, LogIn, LayoutDashboard, LogOut, User, Bell, Search, X, UserCircle } from "lucide-react";
+import { Users, Trophy, Video, Gamepad2, Menu, Home, Layout, Settings, LogIn, LayoutDashboard, LogOut, User, Bell, Search, X, UserCircle, UserPlus } from "lucide-react";
 import { PageProps } from '@/types';
 import { Head, Link } from '@inertiajs/react';
 import { useIsMobile } from "@/hooks/use-mobil";
@@ -39,17 +39,17 @@ export default function Welcome({
   }, [isMobile]);
   const Index = () => {
     const games = [
-      { name: "Minecraft", players: "200+" },
-      { name: "League of Legends", players: "150+" },
-      { name: "Valorant", players: "100+" },
-      { name: "CS:GO", players: "175+" },
+      { name: "Minecraft", players: "8" },
+      { name: "Sims", players: "10" },
+      { name: "Ark", players: "4" },
+      { name: "Different games", players: "10" },
     ];
 
     const stats = [
-      { icon: Users, label: "Active Members", value: "1000+" },
-      { icon: Trophy, label: "Weekly Tournaments", value: "5+" },
-      { icon: Video, label: "Streaming Channels", value: "10+" },
-      { icon: Gamepad2, label: "Game Categories", value: "20+" },
+      { icon: Users, label: "Active Members", value: "45" },
+      // { icon: Trophy, label: "Weekly Tournaments", value: "0" },
+      { icon: Video, label: "Streaming Channels", value: "2" },
+      { icon: Gamepad2, label: "Game Categories", value: "4" },
     ];
 
     const rules = [
@@ -95,12 +95,12 @@ export default function Welcome({
 
                   {/* Center section */}
                   <div className="hidden lg:flex items-center gap-6">
-                    <Link href="/" className="text-gray-300 hover:text-white transition-colors">
+                    <Link href="/dashboard" className="text-gray-300 hover:text-white transition-colors">
                       Dashboard
                     </Link>
-                    <Link href="/projects" className="text-gray-300 hover:text-white transition-colors">
+                    {/* <Link href="/projects" className="text-gray-300 hover:text-white transition-colors">
                       Downloads
-                    </Link>
+                    </Link> */}
                   </div>
 
                   {/* Right section */}
@@ -148,7 +148,7 @@ export default function Welcome({
                           </Link>
                           <Link href={route('register')}>
                             <DropdownMenuItem className="text-gray-300 focus:text-white focus:bg-gray-800">
-                              <LogIn className="h-4 w-4 mr-2" />
+                              <UserPlus className="h-4 w-4 mr-2" />
                               Sign-up
                             </DropdownMenuItem>
                           </Link>
