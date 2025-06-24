@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -14,14 +15,25 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
+    Route::get('/images/upload', [ImageController::class, 'create'])->name('images.upload');
+    Route::post('/images/upload', [ImageController::class, 'store'])->name('images.store');
+    Route::get('/images/{image}', [ImageController::class, 'show'])->name('images.show');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/images/upload/result/{image}', [ImageController::class, 'uploadResult'])->name('images.uploadResult');
+
+Route::get('/images/file/{filename}', [ImageController::class, 'directUrl'])->name('images.direct');
+
+Route::get('/download/launcher', function () {
+    return Inertia::render('download');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
