@@ -16,8 +16,11 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): Response
+    public function edit(Request $request): Response|RedirectResponse
     {
+        if (Auth::check() && Auth::user() && Auth::user()->is_blocked) {
+            return Redirect::to('/');
+        }
         return Inertia::render('Profile/Edit', [
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
             'status' => session('status'),
@@ -29,6 +32,11 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+        
+        if (Auth::check() && Auth::user() && Auth::user()->is_blocked) {
+            return Redirect::to('/');
+        }
+
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
@@ -45,11 +53,16 @@ class ProfileController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        if (Auth::check() && Auth::user() && Auth::user()->is_blocked) {
+            return Redirect::to('/');
+        }
         $request->validate([
             'password' => ['required', 'current_password'],
         ]);
-
+        
         $user = $request->user();
+
+        
 
         Auth::logout();
 

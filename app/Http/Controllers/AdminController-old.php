@@ -17,7 +17,7 @@ class AdminController extends Controller
         \Log::info('AdminController constructor called for user: ' . Auth::id());
         \Log::info('User is admin: ' . (Auth::user() ? (Auth::user()->is_admin ? 'true' : 'false') : 'no user'));
 
-        // $this->middleware('auth');
+        $this->middleware('auth');
         // $this->middleware('can:admin');
     }
 

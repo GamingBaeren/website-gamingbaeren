@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ImageController;
+use App\Http\Middleware\Authenticate;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -38,13 +39,13 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::middleware('auth')->get('/admin/test', function () {
-    return 'Admin test route accessible';
+
+Route::middleware(['auth'])->get('/admin/test', function () {
+    \Log::info('Admin test route accessed by user: ' . auth()->id());
+    return 'Admin test route';
 });
 
-Route::middleware(['auth', 'can:admin'])->prefix('admin')->group(function () {
-    
-
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::post('/users/{user}/change-password', [AdminController::class, 'changePassword'])->name('admin.users.changePassword');
     Route::post('/users/{user}/toggle-block', [AdminController::class, 'toggleBlock'])->name('admin.users.toggleBlock');

@@ -6,6 +6,7 @@ use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class ImageController extends Controller
@@ -15,6 +16,9 @@ class ImageController extends Controller
      */
     public function create()
     {
+        if (Auth::check() && Auth::user() && Auth::user()->is_blocked) {
+            return Redirect::to('/');
+        }
         return Inertia::render('Images/Upload');
     }
 
@@ -28,6 +32,11 @@ class ImageController extends Controller
         ]);
 
         $user = Auth::user();
+
+        
+        if (Auth::check() && Auth::user() && Auth::user()->is_blocked) {
+            return Redirect::to('/');
+        }
 
         $path = $request->file('image')->store('images', 'public');
 

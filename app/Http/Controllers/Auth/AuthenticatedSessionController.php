@@ -29,7 +29,14 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+        
+
         $request->authenticate();
+
+        if (Auth::check() && Auth::user() && Auth::user()->is_blocked) {
+            $request->session()->invalidate();
+            return redirect('/');
+        }
 
         $request->session()->regenerate();
 
@@ -39,8 +46,13 @@ class AuthenticatedSessionController extends Controller
     /**
      * Destroy an authenticated session.
      */
+
     public function destroy(Request $request): RedirectResponse
     {
+        if (Auth::check() && Auth::user() && Auth::user()->is_blocked) {
+            return redirect('/');
+        }
+
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
