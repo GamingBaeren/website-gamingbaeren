@@ -38,6 +38,10 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+Route::middleware('auth')->get('/admin/test', function () {
+    return 'Admin test route accessible';
+});
+
 Route::middleware(['auth', 'can:admin'])->prefix('admin')->group(function () {
     
 

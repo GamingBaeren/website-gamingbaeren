@@ -13,11 +13,15 @@ class AdminController extends Controller
 {
     public function __construct()
     {
-        // Apply admin middleware or authorization here
-        $this->middleware('auth');
-        $this->middleware('can:admin'); // Assuming you have a gate or policy for admin
+
+        \Log::info('Current user ID: ' . Auth::id());
+        \Log::info('Current user is admin: ' . (Auth::user() ? (Auth::user()->is_admin ? 'true' : 'false') : 'no user'));
+
         \Log::info('AdminController constructor called for user: ' . Auth::id());
         \Log::info('User is admin: ' . (Auth::user() ? (Auth::user()->is_admin ? 'true' : 'false') : 'no user'));
+    
+        $this->middleware('auth');
+        $this->middleware('can:admin');
     }
 
     /**
