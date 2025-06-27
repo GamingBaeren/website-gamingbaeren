@@ -51,8 +51,8 @@ export default function Authenticated({
 
                   {/* Center section */}
                   <div className="hidden lg:flex items-center gap-6">
-                    <Link href="/dashboard" className="text-gray-300 hover:text-white transition-colors">
-                      Dashboard
+                    <Link href="/images/upload" className="text-gray-300 hover:text-white transition-colors">
+                      Image Upload
                     </Link>
                     {/* <Link href="/projects" className="text-gray-300 hover:text-white transition-colors">
                       Downloads

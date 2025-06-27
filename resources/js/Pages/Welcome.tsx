@@ -40,13 +40,13 @@ export default function Welcome({
   const Index = () => {
     const games = [
       { name: "Minecraft", players: "8" },
-      { name: "Sims", players: "10" },
+      { name: "Rust-RP", players: "20" },
       { name: "Ark", players: "4" },
       { name: "Different games", players: "10" },
     ];
 
     const stats = [
-      { icon: Users, label: "Active Members", value: "45" },
+      { icon: Users, label: "Active Members", value: "50" },
       // { icon: Trophy, label: "Weekly Tournaments", value: "0" },
       { icon: Video, label: "Streaming Channels", value: "2" },
       { icon: Gamepad2, label: "Game Categories", value: "4" },
