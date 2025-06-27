@@ -44,7 +44,7 @@ export default function Login({
           <h2 className="mt-6 text-3xl font-bold text-white">Log in</h2>
           <p className="mt-2 text-sm text-gray-400">
             Don´t have an account?{" "}
-            <Link href="/login" className="text-primary hover:text-primary/90">
+            <Link href="/register" className="text-primary hover:text-primary/90">
               Sign Up
             </Link>
           </p>
