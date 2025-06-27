@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
+interface User {
+    username: string;
+}
+
 interface ImageProps {
     image?: {
         id: number;
@@ -7,11 +11,13 @@ interface ImageProps {
         filename: string;
         created_at: string;
         updated_at: string;
-        // Add other fields if available
+        file_size?: number;
+        user?: User;
     };
 }
 
-function formatFileSize(bytes: number): string {
+function formatFileSize(bytes?: number): string {
+    if (bytes === undefined) return '';
     if (bytes >= 1048576) {
         return (bytes / 1048576).toFixed(2) + ' MB';
     } else if (bytes >= 1024) {
@@ -23,10 +29,6 @@ function formatFileSize(bytes: number): string {
 
 export default function View({ image }: ImageProps) {
     const [shareStatus, setShareStatus] = useState('🔗 Link teilen');
-
-    useEffect(() => {
-        console.log('Image props:', image);
-    }, [image]);
 
     const shareImage = () => {
         const url = window.location.href;
@@ -105,6 +107,9 @@ export default function View({ image }: ImageProps) {
                         <span className="font-semibold">Dateiname:</span> {image.filename}
                     </div>
                     <div>
+                        <span className="font-semibold">Dateigröße:</span> {formatFileSize(image.file_size)}
+                    </div>
+                    <div>
                         <span className="font-semibold">Hochgeladen:</span>{' '}
                         {new Date(image.created_at).toLocaleString('de-DE', {
                             day: '2-digit',
@@ -113,6 +118,9 @@ export default function View({ image }: ImageProps) {
                             hour: '2-digit',
                             minute: '2-digit',
                         })}
+                    </div>
+                    <div>
+                        <span className="font-semibold">Uploader:</span> {image.user?.username || 'Unbekannt'}
                     </div>
                 </div>
 

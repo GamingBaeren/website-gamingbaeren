@@ -61,8 +61,13 @@ class ImageController extends Controller
         // Removed authorization check to avoid error
         // Ensure route is protected by auth middleware
 
+        $image->load('user');
+
+        // Add file size to image object
+        $image->file_size = Storage::disk('public')->size($image->filename);
+
         return Inertia::render('Images/View', [
-            'image' => $image->load('user'),
+            'image' => $image,
         ]);
     }
 
