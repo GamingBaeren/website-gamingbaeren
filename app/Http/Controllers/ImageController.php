@@ -43,6 +43,7 @@ class ImageController extends Controller
         $image = Image::create([
             'user_id' => $user->id,
             'filename' => $path,
+            'expires_at' => now()->addDays(30),
         ]);
 
         return redirect()->route('images.uploadResult', ['image' => $image->id]);

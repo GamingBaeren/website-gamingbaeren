@@ -98,32 +98,11 @@ export default function Authenticated({
                 <div className="lg:hidden relative bg-gray-900 border-b border-gray-800 py-4 shadow-lg">
                   <div className="px-4 space-y-4">
                     <Link
-                      href="/"
+                      href="/images/upload"
                       className="block text-gray-300 hover:text-white transition-colors py-2"
                       onClick={close}
                     >
-                      Dashboard
-                    </Link>
-                    <Link
-                      href="/projects"
-                      className="block text-gray-300 hover:text-white transition-colors py-2"
-                      onClick={close}
-                    >
-                      Projects
-                    </Link>
-                    <Link
-                      href="/team"
-                      className="block text-gray-300 hover:text-white transition-colors py-2"
-                      onClick={close}
-                    >
-                      Team
-                    </Link>
-                    <Link
-                      href="/reports"
-                      className="block text-gray-300 hover:text-white transition-colors py-2"
-                      onClick={close}
-                    >
-                      Reports
+                      Image Upload
                     </Link>
                   </div>
                 </div>

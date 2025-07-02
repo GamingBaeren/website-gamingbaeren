@@ -13,6 +13,7 @@ interface ImageProps {
         updated_at: string;
         file_size?: number;
         user?: User;
+        expired?: boolean;
     };
 }
 
@@ -29,6 +30,10 @@ function formatFileSize(bytes?: number): string {
 
 export default function View({ image }: ImageProps) {
     const [shareStatus, setShareStatus] = useState('🔗 Link teilen');
+
+    useEffect(() => {
+        console.log('Image props:', image);
+    }, [image]);
 
     const shareImage = () => {
         const url = window.location.href;
@@ -74,6 +79,16 @@ export default function View({ image }: ImageProps) {
             <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 p-4">
                 <div className="text-center text-gray-700 dark:text-gray-300">
                     <p>Bilddaten konnten nicht geladen werden.</p>
+                </div>
+            </div>
+        );
+    }
+
+    if (image.expired) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 p-4">
+                <div className="text-center text-red-700 dark:text-red-400">
+                    <p>Dieses Bild ist abgelaufen und nicht mehr verfügbar.</p>
                 </div>
             </div>
         );
