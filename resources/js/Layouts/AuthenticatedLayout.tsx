@@ -104,6 +104,7 @@ export default function Authenticated({
                     >
                       Image Upload
                     </Link>
+                   
                   </div>
                 </div>
               )}
