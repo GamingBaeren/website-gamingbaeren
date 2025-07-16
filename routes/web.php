@@ -39,6 +39,9 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+Route::get('/games/rust-rp', function () {
+    return Inertia::render('Games/RustRp');
+});
 
 Route::middleware(['auth'])->get('/admin/test', function () {
     \Log::info('Admin test route accessed by user: ' . auth()->id());

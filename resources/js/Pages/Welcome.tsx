@@ -98,9 +98,9 @@ export default function Welcome({
                     <Link href="/images/upload" className="text-gray-300 hover:text-white transition-colors">
                       Image Upload
                     </Link>
-                    {/* <Link href="/projects" className="text-gray-300 hover:text-white transition-colors">
-                      Downloads
-                    </Link> */}
+                    <Link href="/games/rust-rp" className="text-gray-300 hover:text-white transition-colors">
+                      Rust-RP
+                    </Link>
                   </div>
 
                   {/* Right section */}
