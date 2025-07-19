@@ -12,7 +12,9 @@ export default function RustRp() {
   return (
     <>
       <Head title="Rust Roleplay Server - GamingBaeren.de" />
-      <nav className="fixed top-0 left-0 right-0 z-50">
+      
+      <div className="max-w-7xl mx-auto p-6 pt-20 text-white">
+        <nav className="fixed top-0 left-0 right-0 z-50">
         <div className="bg-gray-900 border-b border-gray-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16">
             <div className="flex items-center justify-between h-full">
@@ -117,21 +119,34 @@ export default function RustRp() {
           )}
         </div>
       </nav>
-      <div className="max-w-7xl mx-auto p-6 text-white">
         <section className="mb-8">
           <h1 className="text-4xl font-bold text-blue-500 mb-4">GamingBaeren.de-RP</h1>
-          <p className="text-lg mb-2">
-            Wir sind ein Roleplay Server aber keine Sorge wir sind kein Hardcore-RP-Server ihr braucht keine Angst vor Fehlern zu haben.
+          <p className='text-lg mb-2'>
+            Bärige Grüße
           </p>
           <p className="text-lg mb-2">
-            Streamen ist hier nur nach Erlaubnis gestattet.
+            Wir sind ein Anfängerfreundlicher Rollenspiel-Server. Bei uns kannst du Charaktere spielen und erleben, die verschiedenste Eigenarten und Berufe haben. Eine familiäre Community wartet auf dich!
           </p>
-          <p className="text-lg mb-4">
-            Unser Rust Roleplay Server bietet eine freundliche Community, spannende Rollenspiel-Erlebnisse und regelmäßige Events. Tritt ein und werde Teil unserer wachsenden Familie!
+          <p className="text-lg mb-2">
+            Wir, das Server-Team, geben unser bestes kreatives und soziales Roleplay, zum Beispiel mit Events und Plugins zu fördern. Transparenz und Offenheit für Feedback sind uns wichtig.
+          </p>
+          <p className="text-lg mb-2">
+            Der Server steht in Deutschland und sowohl auf dem Discord-, als auch auf dem Rust-Server wird Deutsch gesprochen. Wenn du bei uns die Erlaubnis einholst, kannst du gerne bei uns Streamen.
           </p>
           <p className="text-sm text-gray-400">
-            Der Server steht in Deutschland. Lies dir die weiteren Abschnitte im Info-Panel durch für mehr Infos über den Server wie Regeln und mehr.
+            Weiter unten findest du weitere Informationen über den Server wie wichtige Regeln und mehr.
           </p>
+          <p className="text-lg mb-2">
+            DENKE IMMER DARAN:
+          </p> 
+          <p className="text-lg mb-2">
+            DEIN VERHALTEN PRÄGT DEINE GESCHICHTE! 
+          </p>
+          <p className="text-lg mb-2">
+            RP BEGINNT MIT DIR
+          </p>
+            
+          
         </section>
 
         <section className="mb-8">
